@@ -1,0 +1,1453 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Sea Ice Prediction &#8212; Use Case Template</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Glossaries" href="../reference/glossary.html" />
+    <link rel="prev" title="Initial Setup" href="chapter3.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/GeoSMART_logo.svg" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Use Case Template</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  About
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference external" href="https://geo-smart.github.io/index.html">
+   Geosmart Website
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://foundations.projectpythia.org/landing-page.html">
+   Project Pythia Foundations
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapter One
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter1.html">
+   Chapter 3: AI for sea ice forecasting
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapter Two
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter2.html">
+   Sea Ice Prediction - MLR+LSTM
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapter Three
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="chapter3.html">
+   Initial Setup
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Chapter Four
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Sea Ice Prediction
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/glossary.html">
+   Glossaries
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../reference/bibliography.html">
+   Bibliography
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/geo-smart/use_case_template/main?urlpath=lab/tree/book/chapters/chapter4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/geo-smart/use_case_template"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/geo-smart/use_case_template/issues/new?title=Issue%20on%20page%20%2Fchapters/chapter4.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/geo-smart/use_case_template/edit/main/book/chapters/chapter4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/chapters/chapter4.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sea Ice Prediction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-setup">
+   Initial Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Initial Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-combined-data-1979-2021">
+   Loading Combined Data 1979- 2021
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-a-lag-to-y-values">
+     Adding a Lag to Y values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-validation-split">
+   Train Validation Split
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshaping-input-and-target-features">
+   Reshaping Input and Target Features
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalization">
+   Normalization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lstm-network">
+   LSTM Network
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-the-network-and-fitting-model">
+   Compiling the Network and Fitting Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-predictions">
+   Model Predictions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Sea Ice Prediction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Sea Ice Prediction
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#initial-setup">
+   Initial Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   Initial Setup
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#loading-combined-data-1979-2021">
+   Loading Combined Data 1979- 2021
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#adding-a-lag-to-y-values">
+     Adding a Lag to Y values
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#train-validation-split">
+   Train Validation Split
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#reshaping-input-and-target-features">
+   Reshaping Input and Target Features
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#normalization">
+   Normalization
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#lstm-network">
+   LSTM Network
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compiling-the-network-and-fitting-model">
+   Compiling the Network and Fitting Model
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#model-predictions">
+   Model Predictions
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#plotting">
+   Plotting
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section id="sea-ice-prediction">
+<h1>Sea Ice Prediction<a class="headerlink" href="#sea-ice-prediction" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">seed</span>
+<span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="initial-setup">
+<h1>Initial Setup<a class="headerlink" href="#initial-setup" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">attention</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting attention
+  Downloading attention-4.1-py3-none-any.whl (8.6 kB)
+Requirement already satisfied: tensorflow&gt;=2.1 in /usr/local/lib/python3.8/dist-packages (from attention) (2.11.0)
+Requirement already satisfied: numpy&gt;=1.18.1 in /usr/local/lib/python3.8/dist-packages (from attention) (1.22.4)
+Requirement already satisfied: packaging in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (23.0)
+Requirement already satisfied: setuptools in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (57.4.0)
+Requirement already satisfied: keras&lt;2.12,&gt;=2.11.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (2.11.0)
+Requirement already satisfied: h5py&gt;=2.9.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (3.1.0)
+Requirement already satisfied: termcolor&gt;=1.1.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (2.2.0)
+Requirement already satisfied: libclang&gt;=13.0.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (15.0.6.1)
+Requirement already satisfied: gast&lt;=0.4.0,&gt;=0.2.1 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (0.4.0)
+Requirement already satisfied: typing-extensions&gt;=3.6.6 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (4.5.0)
+Requirement already satisfied: opt-einsum&gt;=2.3.2 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (3.3.0)
+Requirement already satisfied: tensorboard&lt;2.12,&gt;=2.11 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (2.11.2)
+Requirement already satisfied: grpcio&lt;2.0,&gt;=1.24.3 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (1.51.3)
+Requirement already satisfied: absl-py&gt;=1.0.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (1.4.0)
+Requirement already satisfied: flatbuffers&gt;=2.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (23.1.21)
+Requirement already satisfied: tensorflow-estimator&lt;2.12,&gt;=2.11.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (2.11.0)
+Requirement already satisfied: google-pasta&gt;=0.1.1 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (0.2.0)
+Requirement already satisfied: six&gt;=1.12.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (1.15.0)
+Requirement already satisfied: astunparse&gt;=1.6.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (1.6.3)
+Requirement already satisfied: tensorflow-io-gcs-filesystem&gt;=0.23.1 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (0.31.0)
+Requirement already satisfied: wrapt&gt;=1.11.0 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (1.15.0)
+Requirement already satisfied: protobuf&lt;3.20,&gt;=3.9.2 in /usr/local/lib/python3.8/dist-packages (from tensorflow&gt;=2.1-&gt;attention) (3.19.6)
+Requirement already satisfied: wheel&lt;1.0,&gt;=0.23.0 in /usr/local/lib/python3.8/dist-packages (from astunparse&gt;=1.6.0-&gt;tensorflow&gt;=2.1-&gt;attention) (0.38.4)
+Requirement already satisfied: markdown&gt;=2.6.8 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (3.4.1)
+Requirement already satisfied: tensorboard-plugin-wit&gt;=1.6.0 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (1.8.1)
+Requirement already satisfied: google-auth-oauthlib&lt;0.5,&gt;=0.4.1 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (0.4.6)
+Requirement already satisfied: tensorboard-data-server&lt;0.7.0,&gt;=0.6.0 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (0.6.1)
+Requirement already satisfied: requests&lt;3,&gt;=2.21.0 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2.25.1)
+Requirement already satisfied: werkzeug&gt;=1.0.1 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2.2.3)
+Requirement already satisfied: google-auth&lt;3,&gt;=1.6.3 in /usr/local/lib/python3.8/dist-packages (from tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2.16.1)
+Requirement already satisfied: rsa&lt;5,&gt;=3.1.4 in /usr/local/lib/python3.8/dist-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (4.9)
+Requirement already satisfied: cachetools&lt;6.0,&gt;=2.0.0 in /usr/local/lib/python3.8/dist-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (5.3.0)
+Requirement already satisfied: pyasn1-modules&gt;=0.2.1 in /usr/local/lib/python3.8/dist-packages (from google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (0.2.8)
+Requirement already satisfied: requests-oauthlib&gt;=0.7.0 in /usr/local/lib/python3.8/dist-packages (from google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (1.3.1)
+Requirement already satisfied: importlib-metadata&gt;=4.4 in /usr/local/lib/python3.8/dist-packages (from markdown&gt;=2.6.8-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (6.0.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2022.12.7)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2.10)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (1.26.14)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests&lt;3,&gt;=2.21.0-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (4.0.0)
+Requirement already satisfied: MarkupSafe&gt;=2.1.1 in /usr/local/lib/python3.8/dist-packages (from werkzeug&gt;=1.0.1-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (2.1.2)
+Requirement already satisfied: zipp&gt;=0.5 in /usr/local/lib/python3.8/dist-packages (from importlib-metadata&gt;=4.4-&gt;markdown&gt;=2.6.8-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (3.15.0)
+Requirement already satisfied: pyasn1&lt;0.5.0,&gt;=0.4.6 in /usr/local/lib/python3.8/dist-packages (from pyasn1-modules&gt;=0.2.1-&gt;google-auth&lt;3,&gt;=1.6.3-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (0.4.8)
+Requirement already satisfied: oauthlib&gt;=3.0.0 in /usr/local/lib/python3.8/dist-packages (from requests-oauthlib&gt;=0.7.0-&gt;google-auth-oauthlib&lt;0.5,&gt;=0.4.1-&gt;tensorboard&lt;2.12,&gt;=2.11-&gt;tensorflow&gt;=2.1-&gt;attention) (3.2.2)
+Installing collected packages: attention
+Successfully installed attention-4.1
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h1>Initial Setup<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">attention</span> <span class="kn">import</span> <span class="n">Attention</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
+<span class="kn">from</span> <span class="nn">keras.layers</span> <span class="kn">import</span> <span class="n">LSTM</span><span class="p">,</span><span class="n">TimeDistributed</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span><span class="p">,</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">keras.callbacks</span> <span class="kn">import</span> <span class="n">EarlyStopping</span><span class="p">,</span> <span class="n">ModelCheckpoint</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="loading-combined-data-1979-2021">
+<h1>Loading Combined Data 1979- 2021<a class="headerlink" href="#loading-combined-data-1979-2021" title="Permalink to this headline">#</a></h1>
+<p>Features:
+‘wind_10m’, ‘specific_humidity’, ‘LW_down’, ‘SW_down’, ‘rainfall’, ‘snowfall’, ‘sosaline’, ‘sst’, ‘t2m’, ‘surface_pressure’,’sea_ice_extent’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/monthly_features_1979_Aug2021.npy&#39;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;/monthly_target_1979_Aug2021.npy&#39;</span><span class="p">,</span><span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="adding-a-lag-to-y-values">
+<h2>Adding a Lag to Y values<a class="headerlink" href="#adding-a-lag-to-y-values" title="Permalink to this headline">#</a></h2>
+<p>Here lag = 1 month</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Adding a lag to monthly targets</span>
+<span class="n">lag</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:</span><span class="o">-</span><span class="n">lag</span><span class="p">,:,:]</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="p">[</span><span class="n">lag</span><span class="p">:]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">target</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(511, 1, 10)
+(511,)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="train-validation-split">
+<h1>Train Validation Split<a class="headerlink" href="#train-validation-split" title="Permalink to this headline">#</a></h1>
+<p>LSTM network expects the input data to be provided with a specific array structure in the form of: [samples, time steps, features]. We load the csv file and only retain the feature and target columns. The features and target are stored in separate np arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+<span class="c1"># Sequential split train:val data in 80:20 sequentially </span>
+
+<span class="n">LEN_DATA</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="c1">#total number of pixels</span>
+
+<span class="n">NUM_TRAIN</span> <span class="o">=</span> <span class="n">LEN_DATA</span> <span class="o">-</span> <span class="p">(</span><span class="mi">24</span><span class="o">+</span><span class="mi">6</span><span class="p">)</span> <span class="c1">#reserve last 30 months for testing</span>
+<span class="n">NUM_VALID</span> <span class="o">=</span> <span class="n">LEN_DATA</span> <span class="o">-</span> <span class="n">NUM_TRAIN</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LEN_DATA:&#39;</span><span class="p">,</span><span class="n">LEN_DATA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NUM_TRAIN:&#39;</span><span class="p">,</span><span class="n">NUM_TRAIN</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;NUM_VALID:&#39;</span><span class="p">,</span><span class="n">NUM_VALID</span><span class="p">)</span>
+
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="n">NUM_TRAIN</span><span class="p">]</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">NUM_TRAIN</span><span class="p">:]</span>
+
+<span class="c1">#split features and labels</span>
+<span class="n">y_train</span><span class="o">=</span><span class="n">target</span><span class="p">[:</span><span class="n">NUM_TRAIN</span><span class="p">]</span> <span class="c1">#target is last column i-e sea-ice</span>
+<span class="n">y_valid</span><span class="o">=</span><span class="n">target</span><span class="p">[</span><span class="n">NUM_TRAIN</span><span class="p">:]</span> <span class="c1">#target is last column i-e sea-ice</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LEN_DATA: 511
+NUM_TRAIN: 481
+NUM_VALID: 30
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_train.shape:&#39;</span><span class="p">,</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_train.shape:&#39;</span><span class="p">,</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_valid.shape:&#39;</span><span class="p">,</span><span class="n">x_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_valid.shape:&#39;</span><span class="p">,</span><span class="n">y_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_train.shape: (481, 1, 10)
+y_train.shape: (481,)
+x_valid.shape: (30, 1, 10)
+y_valid.shape: (30,)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="reshaping-input-and-target-features">
+<h1>Reshaping Input and Target Features<a class="headerlink" href="#reshaping-input-and-target-features" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert an array of values into a dataset matrix</span>
+<span class="k">def</span> <span class="nf">reshape_features</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">timesteps</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">timesteps</span><span class="p">)),</span> <span class="n">timesteps</span><span class="p">,</span> <span class="n">dataset</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">X</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="normalization">
+<h1>Normalization<a class="headerlink" href="#normalization" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># normalize the features</span>
+
+<span class="n">scaler_f</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">scaler_f</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">x_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1">#reshaping to 2d for standard scaling</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">scaler_f</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x_valid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="c1">#reshaping to 2d for standard scaling</span>
+
+<span class="n">scaler_l</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">y_train</span> <span class="o">=</span> <span class="n">scaler_l</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">y_train</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#reshaping to 2d for standard scaling</span>
+<span class="n">y_valid</span> <span class="o">=</span> <span class="n">scaler_l</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">y_valid</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="c1">#reshaping to 2d for standard scaling</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Reshaping data to 3D for modeling</span>
+<span class="n">timesteps</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">x_train</span> <span class="o">=</span> <span class="n">reshape_features</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span> <span class="c1"># reshaping to 3d for model</span>
+<span class="n">x_valid</span> <span class="o">=</span> <span class="n">reshape_features</span><span class="p">(</span><span class="n">x_valid</span><span class="p">,</span> <span class="n">timesteps</span><span class="p">)</span> <span class="c1"># reshaping to 3d for model</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(481, 10)
+(30, 10)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_train.shape:&#39;</span><span class="p">,</span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_train.shape:&#39;</span><span class="p">,</span><span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;x_valid.shape:&#39;</span><span class="p">,</span><span class="n">x_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;y_valid.shape:&#39;</span><span class="p">,</span><span class="n">y_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_train.shape: (481, 1, 10)
+y_train.shape: (481, 1)
+x_valid.shape: (30, 1, 10)
+y_valid.shape: (30, 1)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="lstm-network">
+<h1>LSTM Network<a class="headerlink" href="#lstm-network" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras</span> <span class="kn">import</span> <span class="n">Input</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">LSTM</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">load_model</span><span class="p">,</span> <span class="n">Model</span>
+
+<span class="n">timestep</span> <span class="o">=</span> <span class="n">timesteps</span>
+<span class="n">features</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">model_input</span> <span class="o">=</span> <span class="n">Input</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">timestep</span><span class="p">,</span><span class="n">features</span><span class="p">))</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">model_input</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">LSTM</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">return_sequences</span><span class="o">=</span><span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Attention</span><span class="p">(</span><span class="n">trainable</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dropout</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">16</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">)(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Model</span><span class="p">(</span><span class="n">model_input</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="c1">#model.compile(loss=&#39;mae&#39;, optimizer=&#39;adam&#39;)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model: &quot;model&quot;
+_________________________________________________________________
+ Layer (type)                Output Shape              Param #   
+=================================================================
+ input_1 (InputLayer)        [(None, 1, 10)]           0         
+                                                                 
+ lstm (LSTM)                 (None, 1, 64)             19200     
+                                                                 
+ dropout (Dropout)           (None, 1, 64)             0         
+                                                                 
+ lstm_1 (LSTM)               (None, 1, 32)             12416     
+                                                                 
+ lstm_2 (LSTM)               (None, 1, 16)             3136      
+                                                                 
+ lstm_3 (LSTM)               (None, 1, 16)             2112      
+                                                                 
+ attention (Attention)       (None, 128)               4352      
+                                                                 
+ dropout_1 (Dropout)         (None, 128)               0         
+                                                                 
+ dense (Dense)               (None, 32)                4128      
+                                                                 
+ dense_1 (Dense)             (None, 16)                528       
+                                                                 
+ dense_2 (Dense)             (None, 1)                 17        
+                                                                 
+=================================================================
+Total params: 45,889
+Trainable params: 45,889
+Non-trainable params: 0
+_________________________________________________________________
+None
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">extent</span> <span class="o">=</span> <span class="n">target</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">extent</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(511,)
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compiling-the-network-and-fitting-model">
+<h1>Compiling the Network and Fitting Model<a class="headerlink" href="#compiling-the-network-and-fitting-model" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Compiling the network</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;adam&#39;</span><span class="p">)</span>
+<span class="n">checkpoint_path</span><span class="o">=</span><span class="s1">&#39;./testmodel.h5&#39;</span>
+<span class="n">keras_callbacks</span>   <span class="o">=</span> <span class="p">[</span>
+      <span class="n">EarlyStopping</span><span class="p">(</span><span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">patience</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="n">min_delta</span><span class="o">=</span><span class="mf">0.001</span><span class="p">),</span>
+      <span class="n">ModelCheckpoint</span><span class="p">(</span><span class="n">checkpoint_path</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="s1">&#39;val_loss&#39;</span><span class="p">,</span> <span class="n">save_best_only</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;min&#39;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">history</span><span class="o">=</span><span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">validation_split</span> <span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">callbacks</span><span class="o">=</span><span class="n">keras_callbacks</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Epoch 1/500
+28/28 - 17s - loss: 0.8364 - val_loss: 0.8320 - 17s/epoch - 622ms/step
+Epoch 2/500
+28/28 - 0s - loss: 0.1656 - val_loss: 0.1492 - 349ms/epoch - 12ms/step
+Epoch 3/500
+28/28 - 0s - loss: 0.0414 - val_loss: 0.0798 - 365ms/epoch - 13ms/step
+Epoch 4/500
+28/28 - 0s - loss: 0.0315 - val_loss: 0.0750 - 369ms/epoch - 13ms/step
+Epoch 5/500
+28/28 - 0s - loss: 0.0327 - val_loss: 0.0807 - 276ms/epoch - 10ms/step
+Epoch 6/500
+28/28 - 0s - loss: 0.0279 - val_loss: 0.0370 - 366ms/epoch - 13ms/step
+Epoch 7/500
+28/28 - 0s - loss: 0.0248 - val_loss: 0.0489 - 283ms/epoch - 10ms/step
+Epoch 8/500
+28/28 - 0s - loss: 0.0230 - val_loss: 0.0697 - 274ms/epoch - 10ms/step
+Epoch 9/500
+28/28 - 0s - loss: 0.0210 - val_loss: 0.0402 - 310ms/epoch - 11ms/step
+Epoch 10/500
+28/28 - 0s - loss: 0.0197 - val_loss: 0.0591 - 272ms/epoch - 10ms/step
+Epoch 11/500
+28/28 - 0s - loss: 0.0223 - val_loss: 0.0479 - 296ms/epoch - 11ms/step
+Epoch 12/500
+28/28 - 0s - loss: 0.0201 - val_loss: 0.0536 - 353ms/epoch - 13ms/step
+Epoch 13/500
+28/28 - 0s - loss: 0.0214 - val_loss: 0.0653 - 291ms/epoch - 10ms/step
+Epoch 14/500
+28/28 - 0s - loss: 0.0206 - val_loss: 0.0369 - 355ms/epoch - 13ms/step
+Epoch 15/500
+28/28 - 0s - loss: 0.0178 - val_loss: 0.0372 - 294ms/epoch - 11ms/step
+Epoch 16/500
+28/28 - 0s - loss: 0.0183 - val_loss: 0.0444 - 373ms/epoch - 13ms/step
+Epoch 17/500
+28/28 - 0s - loss: 0.0240 - val_loss: 0.0564 - 390ms/epoch - 14ms/step
+Epoch 18/500
+28/28 - 0s - loss: 0.0226 - val_loss: 0.0430 - 437ms/epoch - 16ms/step
+Epoch 19/500
+28/28 - 1s - loss: 0.0189 - val_loss: 0.0343 - 531ms/epoch - 19ms/step
+Epoch 20/500
+28/28 - 0s - loss: 0.0225 - val_loss: 0.0545 - 401ms/epoch - 14ms/step
+Epoch 21/500
+28/28 - 0s - loss: 0.0270 - val_loss: 0.0465 - 369ms/epoch - 13ms/step
+Epoch 22/500
+28/28 - 0s - loss: 0.0217 - val_loss: 0.0615 - 278ms/epoch - 10ms/step
+Epoch 23/500
+28/28 - 0s - loss: 0.0208 - val_loss: 0.0445 - 281ms/epoch - 10ms/step
+Epoch 24/500
+28/28 - 0s - loss: 0.0200 - val_loss: 0.0295 - 345ms/epoch - 12ms/step
+Epoch 25/500
+28/28 - 0s - loss: 0.0201 - val_loss: 0.0208 - 352ms/epoch - 13ms/step
+Epoch 26/500
+28/28 - 0s - loss: 0.0209 - val_loss: 0.0644 - 292ms/epoch - 10ms/step
+Epoch 27/500
+28/28 - 0s - loss: 0.0202 - val_loss: 0.0519 - 275ms/epoch - 10ms/step
+Epoch 28/500
+28/28 - 0s - loss: 0.0212 - val_loss: 0.0199 - 350ms/epoch - 13ms/step
+Epoch 29/500
+28/28 - 0s - loss: 0.0187 - val_loss: 0.0457 - 282ms/epoch - 10ms/step
+Epoch 30/500
+28/28 - 0s - loss: 0.0165 - val_loss: 0.0446 - 295ms/epoch - 11ms/step
+Epoch 31/500
+28/28 - 0s - loss: 0.0215 - val_loss: 0.0647 - 290ms/epoch - 10ms/step
+Epoch 32/500
+28/28 - 0s - loss: 0.0193 - val_loss: 0.0237 - 284ms/epoch - 10ms/step
+Epoch 33/500
+28/28 - 0s - loss: 0.0174 - val_loss: 0.0409 - 297ms/epoch - 11ms/step
+Epoch 34/500
+28/28 - 0s - loss: 0.0186 - val_loss: 0.0221 - 293ms/epoch - 10ms/step
+Epoch 35/500
+28/28 - 0s - loss: 0.0230 - val_loss: 0.0481 - 288ms/epoch - 10ms/step
+Epoch 36/500
+28/28 - 0s - loss: 0.0207 - val_loss: 0.0495 - 362ms/epoch - 13ms/step
+Epoch 37/500
+28/28 - 0s - loss: 0.0175 - val_loss: 0.0543 - 275ms/epoch - 10ms/step
+Epoch 38/500
+28/28 - 0s - loss: 0.0170 - val_loss: 0.0340 - 287ms/epoch - 10ms/step
+Epoch 39/500
+28/28 - 0s - loss: 0.0203 - val_loss: 0.0713 - 285ms/epoch - 10ms/step
+Epoch 40/500
+28/28 - 0s - loss: 0.0251 - val_loss: 0.0254 - 278ms/epoch - 10ms/step
+Epoch 41/500
+28/28 - 0s - loss: 0.0176 - val_loss: 0.0657 - 295ms/epoch - 11ms/step
+Epoch 42/500
+28/28 - 0s - loss: 0.0189 - val_loss: 0.0496 - 282ms/epoch - 10ms/step
+Epoch 43/500
+28/28 - 0s - loss: 0.0170 - val_loss: 0.0355 - 276ms/epoch - 10ms/step
+Epoch 44/500
+28/28 - 0s - loss: 0.0156 - val_loss: 0.0405 - 286ms/epoch - 10ms/step
+Epoch 45/500
+28/28 - 0s - loss: 0.0174 - val_loss: 0.0319 - 297ms/epoch - 11ms/step
+Epoch 46/500
+28/28 - 0s - loss: 0.0165 - val_loss: 0.0241 - 394ms/epoch - 14ms/step
+Epoch 47/500
+28/28 - 0s - loss: 0.0181 - val_loss: 0.0513 - 303ms/epoch - 11ms/step
+Epoch 48/500
+28/28 - 0s - loss: 0.0188 - val_loss: 0.0378 - 288ms/epoch - 10ms/step
+Epoch 49/500
+28/28 - 0s - loss: 0.0186 - val_loss: 0.0513 - 283ms/epoch - 10ms/step
+Epoch 50/500
+28/28 - 0s - loss: 0.0171 - val_loss: 0.0472 - 309ms/epoch - 11ms/step
+Epoch 51/500
+28/28 - 0s - loss: 0.0153 - val_loss: 0.0308 - 282ms/epoch - 10ms/step
+Epoch 52/500
+28/28 - 0s - loss: 0.0152 - val_loss: 0.0264 - 289ms/epoch - 10ms/step
+Epoch 53/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0356 - 297ms/epoch - 11ms/step
+Epoch 54/500
+28/28 - 0s - loss: 0.0161 - val_loss: 0.0465 - 404ms/epoch - 14ms/step
+Epoch 55/500
+28/28 - 0s - loss: 0.0165 - val_loss: 0.0313 - 436ms/epoch - 16ms/step
+Epoch 56/500
+28/28 - 0s - loss: 0.0179 - val_loss: 0.0375 - 387ms/epoch - 14ms/step
+Epoch 57/500
+28/28 - 0s - loss: 0.0160 - val_loss: 0.0435 - 456ms/epoch - 16ms/step
+Epoch 58/500
+28/28 - 0s - loss: 0.0165 - val_loss: 0.0250 - 450ms/epoch - 16ms/step
+Epoch 59/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0296 - 364ms/epoch - 13ms/step
+Epoch 60/500
+28/28 - 0s - loss: 0.0160 - val_loss: 0.0370 - 299ms/epoch - 11ms/step
+Epoch 61/500
+28/28 - 0s - loss: 0.0170 - val_loss: 0.0280 - 287ms/epoch - 10ms/step
+Epoch 62/500
+28/28 - 0s - loss: 0.0161 - val_loss: 0.0245 - 287ms/epoch - 10ms/step
+Epoch 63/500
+28/28 - 0s - loss: 0.0160 - val_loss: 0.0449 - 279ms/epoch - 10ms/step
+Epoch 64/500
+28/28 - 0s - loss: 0.0163 - val_loss: 0.0390 - 281ms/epoch - 10ms/step
+Epoch 65/500
+28/28 - 0s - loss: 0.0169 - val_loss: 0.0415 - 285ms/epoch - 10ms/step
+Epoch 66/500
+28/28 - 0s - loss: 0.0158 - val_loss: 0.0428 - 276ms/epoch - 10ms/step
+Epoch 67/500
+28/28 - 0s - loss: 0.0187 - val_loss: 0.0379 - 300ms/epoch - 11ms/step
+Epoch 68/500
+28/28 - 0s - loss: 0.0170 - val_loss: 0.0428 - 318ms/epoch - 11ms/step
+Epoch 69/500
+28/28 - 0s - loss: 0.0196 - val_loss: 0.0429 - 294ms/epoch - 10ms/step
+Epoch 70/500
+28/28 - 0s - loss: 0.0159 - val_loss: 0.0472 - 329ms/epoch - 12ms/step
+Epoch 71/500
+28/28 - 0s - loss: 0.0153 - val_loss: 0.0270 - 285ms/epoch - 10ms/step
+Epoch 72/500
+28/28 - 0s - loss: 0.0169 - val_loss: 0.0333 - 284ms/epoch - 10ms/step
+Epoch 73/500
+28/28 - 0s - loss: 0.0157 - val_loss: 0.0344 - 288ms/epoch - 10ms/step
+Epoch 74/500
+28/28 - 0s - loss: 0.0161 - val_loss: 0.0678 - 303ms/epoch - 11ms/step
+Epoch 75/500
+28/28 - 0s - loss: 0.0193 - val_loss: 0.0118 - 333ms/epoch - 12ms/step
+Epoch 76/500
+28/28 - 0s - loss: 0.0181 - val_loss: 0.0596 - 281ms/epoch - 10ms/step
+Epoch 77/500
+28/28 - 0s - loss: 0.0142 - val_loss: 0.0312 - 307ms/epoch - 11ms/step
+Epoch 78/500
+28/28 - 0s - loss: 0.0153 - val_loss: 0.0631 - 294ms/epoch - 10ms/step
+Epoch 79/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0258 - 285ms/epoch - 10ms/step
+Epoch 80/500
+28/28 - 0s - loss: 0.0173 - val_loss: 0.0295 - 286ms/epoch - 10ms/step
+Epoch 81/500
+28/28 - 0s - loss: 0.0143 - val_loss: 0.0247 - 290ms/epoch - 10ms/step
+Epoch 82/500
+28/28 - 0s - loss: 0.0174 - val_loss: 0.0343 - 298ms/epoch - 11ms/step
+Epoch 83/500
+28/28 - 0s - loss: 0.0144 - val_loss: 0.0259 - 352ms/epoch - 13ms/step
+Epoch 84/500
+28/28 - 0s - loss: 0.0167 - val_loss: 0.0387 - 294ms/epoch - 10ms/step
+Epoch 85/500
+28/28 - 0s - loss: 0.0170 - val_loss: 0.0217 - 294ms/epoch - 10ms/step
+Epoch 86/500
+28/28 - 0s - loss: 0.0141 - val_loss: 0.0358 - 274ms/epoch - 10ms/step
+Epoch 87/500
+28/28 - 0s - loss: 0.0144 - val_loss: 0.0479 - 301ms/epoch - 11ms/step
+Epoch 88/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0434 - 276ms/epoch - 10ms/step
+Epoch 89/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0219 - 288ms/epoch - 10ms/step
+Epoch 90/500
+28/28 - 0s - loss: 0.0147 - val_loss: 0.0246 - 290ms/epoch - 10ms/step
+Epoch 91/500
+28/28 - 0s - loss: 0.0159 - val_loss: 0.0384 - 277ms/epoch - 10ms/step
+Epoch 92/500
+28/28 - 0s - loss: 0.0145 - val_loss: 0.0142 - 283ms/epoch - 10ms/step
+Epoch 93/500
+28/28 - 0s - loss: 0.0169 - val_loss: 0.0426 - 449ms/epoch - 16ms/step
+Epoch 94/500
+28/28 - 0s - loss: 0.0127 - val_loss: 0.0658 - 374ms/epoch - 13ms/step
+Epoch 95/500
+28/28 - 0s - loss: 0.0176 - val_loss: 0.0296 - 383ms/epoch - 14ms/step
+Epoch 96/500
+28/28 - 0s - loss: 0.0148 - val_loss: 0.0313 - 468ms/epoch - 17ms/step
+Epoch 97/500
+28/28 - 0s - loss: 0.0159 - val_loss: 0.0396 - 446ms/epoch - 16ms/step
+Epoch 98/500
+28/28 - 0s - loss: 0.0174 - val_loss: 0.0330 - 359ms/epoch - 13ms/step
+Epoch 99/500
+28/28 - 0s - loss: 0.0151 - val_loss: 0.0456 - 291ms/epoch - 10ms/step
+Epoch 100/500
+28/28 - 0s - loss: 0.0152 - val_loss: 0.0274 - 309ms/epoch - 11ms/step
+Epoch 101/500
+28/28 - 0s - loss: 0.0140 - val_loss: 0.0384 - 289ms/epoch - 10ms/step
+Epoch 102/500
+28/28 - 0s - loss: 0.0146 - val_loss: 0.0212 - 303ms/epoch - 11ms/step
+Epoch 103/500
+28/28 - 0s - loss: 0.0165 - val_loss: 0.0199 - 291ms/epoch - 10ms/step
+Epoch 104/500
+28/28 - 0s - loss: 0.0140 - val_loss: 0.0263 - 281ms/epoch - 10ms/step
+Epoch 105/500
+28/28 - 0s - loss: 0.0146 - val_loss: 0.0269 - 291ms/epoch - 10ms/step
+Epoch 106/500
+28/28 - 0s - loss: 0.0135 - val_loss: 0.0352 - 282ms/epoch - 10ms/step
+Epoch 107/500
+28/28 - 0s - loss: 0.0133 - val_loss: 0.0262 - 283ms/epoch - 10ms/step
+Epoch 108/500
+28/28 - 0s - loss: 0.0120 - val_loss: 0.0328 - 302ms/epoch - 11ms/step
+Epoch 109/500
+28/28 - 0s - loss: 0.0154 - val_loss: 0.0485 - 301ms/epoch - 11ms/step
+Epoch 110/500
+28/28 - 0s - loss: 0.0147 - val_loss: 0.0377 - 279ms/epoch - 10ms/step
+Epoch 111/500
+28/28 - 0s - loss: 0.0157 - val_loss: 0.0262 - 286ms/epoch - 10ms/step
+Epoch 112/500
+28/28 - 0s - loss: 0.0158 - val_loss: 0.0329 - 287ms/epoch - 10ms/step
+Epoch 113/500
+28/28 - 0s - loss: 0.0151 - val_loss: 0.0169 - 284ms/epoch - 10ms/step
+Epoch 114/500
+28/28 - 0s - loss: 0.0159 - val_loss: 0.0483 - 289ms/epoch - 10ms/step
+Epoch 115/500
+28/28 - 0s - loss: 0.0162 - val_loss: 0.0208 - 316ms/epoch - 11ms/step
+Epoch 116/500
+28/28 - 0s - loss: 0.0169 - val_loss: 0.0513 - 293ms/epoch - 10ms/step
+Epoch 117/500
+28/28 - 0s - loss: 0.0157 - val_loss: 0.0430 - 276ms/epoch - 10ms/step
+Epoch 118/500
+28/28 - 0s - loss: 0.0164 - val_loss: 0.0612 - 290ms/epoch - 10ms/step
+Epoch 119/500
+28/28 - 0s - loss: 0.0156 - val_loss: 0.0233 - 287ms/epoch - 10ms/step
+Epoch 120/500
+28/28 - 0s - loss: 0.0144 - val_loss: 0.0397 - 296ms/epoch - 11ms/step
+Epoch 121/500
+28/28 - 0s - loss: 0.0140 - val_loss: 0.0410 - 272ms/epoch - 10ms/step
+Epoch 122/500
+28/28 - 0s - loss: 0.0182 - val_loss: 0.0306 - 293ms/epoch - 10ms/step
+Epoch 123/500
+28/28 - 0s - loss: 0.0148 - val_loss: 0.0261 - 294ms/epoch - 11ms/step
+Epoch 124/500
+28/28 - 0s - loss: 0.0140 - val_loss: 0.0190 - 269ms/epoch - 10ms/step
+Epoch 125/500
+28/28 - 0s - loss: 0.0135 - val_loss: 0.0238 - 287ms/epoch - 10ms/step
+Epoch 126/500
+28/28 - 0s - loss: 0.0153 - val_loss: 0.0345 - 325ms/epoch - 12ms/step
+Epoch 127/500
+28/28 - 0s - loss: 0.0155 - val_loss: 0.0252 - 295ms/epoch - 11ms/step
+Epoch 128/500
+28/28 - 0s - loss: 0.0139 - val_loss: 0.0406 - 306ms/epoch - 11ms/step
+Epoch 129/500
+28/28 - 0s - loss: 0.0140 - val_loss: 0.0411 - 296ms/epoch - 11ms/step
+Epoch 130/500
+28/28 - 0s - loss: 0.0152 - val_loss: 0.0257 - 284ms/epoch - 10ms/step
+Epoch 131/500
+28/28 - 0s - loss: 0.0130 - val_loss: 0.0371 - 315ms/epoch - 11ms/step
+Epoch 132/500
+28/28 - 0s - loss: 0.0159 - val_loss: 0.0332 - 467ms/epoch - 17ms/step
+Epoch 133/500
+28/28 - 0s - loss: 0.0152 - val_loss: 0.0349 - 447ms/epoch - 16ms/step
+Epoch 134/500
+28/28 - 0s - loss: 0.0151 - val_loss: 0.0466 - 453ms/epoch - 16ms/step
+Epoch 135/500
+28/28 - 0s - loss: 0.0149 - val_loss: 0.0225 - 453ms/epoch - 16ms/step
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="model-predictions">
+<h1>Model Predictions<a class="headerlink" href="#model-predictions" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">trainPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_train</span><span class="p">)</span>
+<span class="n">testPred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_valid</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16/16 [==============================] - 2s 5ms/step
+1/1 [==============================] - 0s 33ms/step
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">testPred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trainPred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30, 1)
+(481, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#Reverting data back to 2D from 3D</span>
+<span class="n">x_valid_t</span> <span class="o">=</span> <span class="n">x_valid</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">x_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_valid</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x_valid_t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">testPred</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30, 10)
+(30, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># invert scaling for forecasted values </span>
+
+<span class="n">inv_testPred</span> <span class="o">=</span> <span class="n">scaler_l</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">testPred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inv_testPred</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># invert scaling for actual values</span>
+
+<span class="n">inv_y_valid</span> <span class="o">=</span> <span class="n">scaler_l</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_valid</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14369558.]
+[13525194.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate RMSE</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">rmse</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">mean_squared_error</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="p">,</span> <span class="n">inv_testPred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test RMSE: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">rmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test RMSE: 635049.981
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate Normalized RMSE</span>
+<span class="n">y_max</span> <span class="o">=</span> <span class="n">inv_y_valid</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">y_min</span> <span class="o">=</span> <span class="n">inv_y_valid</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">nrmse</span> <span class="o">=</span> <span class="n">rmse</span> <span class="o">/</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test NRMSE:&#39;</span><span class="p">,</span> <span class="n">nrmse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test NRMSE: 0.06047605320267713
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate R-square</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">r2_score</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span>
+
+<span class="n">r_sq</span> <span class="o">=</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="p">,</span> <span class="n">inv_testPred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Test R_Square: </span><span class="si">%.3f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r_sq</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Test R_Square: 0.968
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plotting">
+<h1>Plotting<a class="headerlink" href="#plotting" title="Permalink to this headline">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+
+<span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">history</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="s1">&#39;val_loss&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter4_35_0.png" src="../_images/chapter4_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">y_train</span><span class="p">,</span><span class="n">trainPred</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">y_train</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_train</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">y_train</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">y_train</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;predicted&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\nfig, ax = plt.subplots()\nax.scatter(y_train,trainPred)\nax.plot([y_train.min(), y_train.max()], [y_train.min(), y_train.max()], &#39;k--&#39;, lw=4)\nax.set_xlabel(&#39;observed&#39;)\nax.set_ylabel(&#39;predicted&#39;)\nplt.show()\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="p">,</span><span class="n">inv_testPred</span><span class="p">)</span> <span class="c1">#[:,:,6]</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">inv_y_valid</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">inv_y_valid</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="p">[</span><span class="n">inv_y_valid</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">inv_y_valid</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span> <span class="s1">&#39;k--&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;observed&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;predicted&#39;</span><span class="p">)</span>
+<span class="c1">#plt.savefig(&#39;test_prediction.png&#39;,bbox_inches=&#39;tight&#39;,dpi=1200)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&quot;\nfig, ax = plt.subplots()\nax.scatter(inv_y_valid,inv_testPred) #[:,:,6]\nax.plot([inv_y_valid.min(), inv_y_valid.max()], [inv_y_valid.min(), inv_y_valid.max()], &#39;k--&#39;, lw=4)\nax.set_xlabel(&#39;observed&#39;)\nax.set_ylabel(&#39;predicted&#39;)\n#plt.savefig(&#39;test_prediction.png&#39;,bbox_inches=&#39;tight&#39;,dpi=1200)\nplt.show()\n&quot;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">pyplot</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">24</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span><span class="n">dpi</span> <span class="o">=</span> <span class="mi">600</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">inv_testPred</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">inv_y_valid</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;y_pred&#39;</span><span class="p">,</span><span class="s1">&#39;y_test&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Sea Ice Extent Observation vs LSTM Prediction (2019-21)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time (Months)&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;Sea Ice Extent mil. $km^2$&quot;</span><span class="p">)</span>
+<span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;Time_series_sea_ice_extent_trend_1979_2021_lstm.png&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/chapter4_38_0.png" src="../_images/chapter4_38_0.png" />
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./chapters"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="chapter3.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Initial Setup</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../reference/glossary.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Glossaries</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By eScience Institute, University of Washington<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
